@@ -1,0 +1,15 @@
+{
+  "name": "apps-stats",
+  "version": "1.0.0",
+  "description": "API end-point for NPM stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mozilla",
+  "license": "MPL 2.0",
+  "dependencies": {
+    "es6-promise": "^2.0.1",
+    "npm-stats": "^1.1.0"
+  }
+}
