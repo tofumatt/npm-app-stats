@@ -10,8 +10,10 @@ var modules = [
   'node-firefox-build-tools',
   'node-firefox-connect',
   'node-firefox-find-app',
+  'node-firefox-find-devices',
   'node-firefox-find-ports',
   'node-firefox-find-simulators',
+  'node-firefox-forward-ports',
   'node-firefox-launch-app',
   'node-firefox-install-app',
   'node-firefox-reload-css',
@@ -29,7 +31,6 @@ function getDownloadsForModules(modulesToGet) {
     modulesToGet.forEach(function(module) {
       registry.module(module).downloads({ since: startDate }, function(options, downloads) {
         moduleStats[module] = { totalDownloads: 0 };
-        // moduleStats[module].downloads = downloads;
 
         downloads.forEach(function(downloadForDay) {
           moduleStats[module].totalDownloads += downloadForDay.value;
@@ -43,14 +44,7 @@ function getDownloadsForModules(modulesToGet) {
   });
 }
 
-getDownloadsForModules(modules).then(function(moduleStats) {
-  console.log(moduleStats);
-
-  for (var i in moduleStats) {
-    grandTotal += moduleStats[i].totalDownloads;
-  }
-
-  console.log();
-
-  console.log('Total downloads:', grandTotal);
-});
+module.exports = {
+  modules: modules,
+  getDownloads: getDownloadsForModules
+};

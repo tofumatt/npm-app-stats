@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  if moduleStats
+    dl
+      each module, moduleName in moduleStats
+        dt= moduleName
+        dd= module.totalDownloads
+      dt Total downloads
+      dd= grandTotal
